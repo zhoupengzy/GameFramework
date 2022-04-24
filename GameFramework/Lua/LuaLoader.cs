@@ -16,8 +16,8 @@ namespace GameFramework.Lua
 
         private bool IsDebug = false;
 
-        public EventHandler<LoadLuaBoundleSuccessEventArgs> OnLoadLuaBoundleSuccess
-        { get; set; }
+//         public EventHandler<LoadLuaBoundleSuccessEventArgs> OnLoadLuaBoundleSuccess
+//         { get; set; }
 
         public LuaLoader()
         {
@@ -84,7 +84,8 @@ namespace GameFramework.Lua
             if (!fileName.EndsWith(".lua")) fileName += ".lua";
             fileName = "Assets/ProjectResources/LuaBuilds/" + fileName + ".bytes";
 
-            return (resourceManager.LoadAsset(fileName) as TextAsset).bytes;
+            return null;
+            //return (resourceManager.LoadAsset(fileName) as TextAsset).bytes;
         }
 
         private void LoadLuaBoundleSuccessCallback(string luaAssetName, object luaAsset, float duration, object userData)
@@ -95,10 +96,10 @@ namespace GameFramework.Lua
                 luaAssetName = luaAssetName.Replace("lua/", "").Replace(".unity3d", "");
                 LuaFileUtils.Instance.AddSearchBundle(luaAssetName.ToLower(), bundle);
 
-                if (OnLoadLuaBoundleSuccess != null)
-                {
-                    OnLoadLuaBoundleSuccess(this, new LoadLuaBoundleSuccessEventArgs(luaAssetName, userData));
-                }
+//                 if (OnLoadLuaBoundleSuccess != null)
+//                 {
+//                     OnLoadLuaBoundleSuccess(this, new LoadLuaBoundleSuccessEventArgs(luaAssetName, userData));
+//                 }
             }
         }
 

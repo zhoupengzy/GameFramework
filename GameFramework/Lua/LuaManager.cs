@@ -18,6 +18,8 @@ namespace GameFramework.Lua
         { get; private set; }
 
         internal override int Priority
+
+
         {
             get
             {
@@ -31,9 +33,9 @@ namespace GameFramework.Lua
         {
             loader = new LuaLoader();
             lua = new LuaState();
-            this.OpenLibs();
+            //this.OpenLibs();
             this.OpenLuaSocket();
-            this.OpenSprotoCore();
+            //this.OpenSprotoCore();
             lua.LuaSetTop(0);
         }
 
@@ -77,7 +79,7 @@ namespace GameFramework.Lua
         private void OpenSprotoCore()
         {
             lua.BeginPreLoad();
-            lua.RegFunction("sproto.core", LuaOpen_Sproto_Core);
+            //lua.RegFunction("sproto.core", LuaOpen_Sproto_Core);
             lua.EndPreLoad();
         }
 
