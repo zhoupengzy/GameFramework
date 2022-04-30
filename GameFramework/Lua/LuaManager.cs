@@ -33,7 +33,7 @@ namespace GameFramework.Lua
         {
             loader = new LuaLoader();
             lua = new LuaState();
-            //this.OpenLibs();
+            this.OpenLibs();
             this.OpenLuaSocket();
             //this.OpenSprotoCore();
             lua.LuaSetTop(0);
@@ -121,10 +121,10 @@ namespace GameFramework.Lua
         {
             //保持库名字与5.1.5库中一致
             lua.BeginPreLoad();                        
-//             lua.AddPreLoadLib("struct", new LuaCSFunction(LuaDLL.luaopen_struct));
-//             lua.AddPreLoadLib("lpeg", new LuaCSFunction(LuaDLL.luaopen_lpeg));
-//             lua.AddPreLoadLib("cjson", new LuaCSFunction(LuaDLL.luaopen_cjson));
-//             lua.AddPreLoadLib("cjson.safe", new LuaCSFunction(LuaDLL.luaopen_cjson_safe));
+//              lua.AddPreLoadLib("struct", new LuaCSFunction(LuaDLL.luaopen_struct));
+//              lua.AddPreLoadLib("lpeg", new LuaCSFunction(LuaDLL.luaopen_lpeg));
+//              lua.AddPreLoadLib("cjson", new LuaCSFunction(LuaDLL.luaopen_cjson));
+//              lua.AddPreLoadLib("cjson.safe", new LuaCSFunction(LuaDLL.luaopen_cjson_safe));
             lua.EndPreLoad();   
         }
 
